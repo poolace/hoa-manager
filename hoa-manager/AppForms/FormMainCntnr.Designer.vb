@@ -26,13 +26,15 @@ Partial Class FormMainCntnr
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_FMC_File_New = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_FMC_File_Open = New System.Windows.Forms.ToolStripMenuItem()
+        Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FMC_MenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'FMC_MenuStrip
         '
-        Me.FMC_MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
+        Me.FMC_MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.WindowToolStripMenuItem})
         Me.FMC_MenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.FMC_MenuStrip.MdiWindowListItem = Me.WindowToolStripMenuItem
         Me.FMC_MenuStrip.Name = "FMC_MenuStrip"
         Me.FMC_MenuStrip.Size = New System.Drawing.Size(800, 24)
         Me.FMC_MenuStrip.TabIndex = 1
@@ -57,6 +59,12 @@ Partial Class FormMainCntnr
         Me.TSMI_FMC_File_Open.Size = New System.Drawing.Size(180, 22)
         Me.TSMI_FMC_File_Open.Text = "&Open"
         '
+        'WindowToolStripMenuItem
+        '
+        Me.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem"
+        Me.WindowToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
+        Me.WindowToolStripMenuItem.Text = "&Window"
+        '
         'FormMainCntnr
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -67,6 +75,7 @@ Partial Class FormMainCntnr
         Me.MainMenuStrip = Me.FMC_MenuStrip
         Me.Name = "FormMainCntnr"
         Me.Text = "HOA Manager"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.FMC_MenuStrip.ResumeLayout(False)
         Me.FMC_MenuStrip.PerformLayout()
         Me.ResumeLayout(False)
@@ -78,4 +87,5 @@ Partial Class FormMainCntnr
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TSMI_FMC_File_New As ToolStripMenuItem
     Friend WithEvents TSMI_FMC_File_Open As ToolStripMenuItem
+    Friend WithEvents WindowToolStripMenuItem As ToolStripMenuItem
 End Class
