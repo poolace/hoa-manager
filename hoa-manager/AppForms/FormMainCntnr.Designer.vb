@@ -27,6 +27,7 @@ Partial Class FormMainCntnr
         Me.TSMI_FMC_File_New = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_FMC_File_Open = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FMC_MenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -42,7 +43,7 @@ Partial Class FormMainCntnr
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_FMC_File_New, Me.TSMI_FMC_File_Open})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_FMC_File_New, Me.TSMI_FMC_File_Open, Me.TestToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "&File"
@@ -64,6 +65,12 @@ Partial Class FormMainCntnr
         Me.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem"
         Me.WindowToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
         Me.WindowToolStripMenuItem.Text = "&Window"
+        '
+        'TestToolStripMenuItem
+        '
+        Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
+        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TestToolStripMenuItem.Text = "&Test"
         '
         'FormMainCntnr
         '
@@ -88,4 +95,5 @@ Partial Class FormMainCntnr
     Friend WithEvents TSMI_FMC_File_New As ToolStripMenuItem
     Friend WithEvents TSMI_FMC_File_Open As ToolStripMenuItem
     Friend WithEvents WindowToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TestToolStripMenuItem As ToolStripMenuItem
 End Class
