@@ -108,7 +108,7 @@
     <Compile Include="AppForms\test.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGenerator.vb" />
+    <Compile Include="AppCode\FormGenerator.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -171,9 +171,7 @@
       <DependentUpon>_hmDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AppCode\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
