@@ -338,3 +338,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/hoa-manager/App_Data/hoa-manager.old
+/hoa-manager/App_Data/hoa-manager_log.old

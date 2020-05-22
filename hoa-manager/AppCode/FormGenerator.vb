@@ -2,23 +2,25 @@
 Imports System.Data.SqlClient
 
 Module FormGenerator
-    Sub formatStateLookup(ByRef frm As Form)
+    Sub FormatStateLookup(ByRef frm As Form)
         frm.Text = "Phone Type Editor"
 
         '***Add controls***
-        Dim lPhoneType As New Label()
-        lPhoneType.Text = "Phone Type:"
-        lPhoneType.Location = New Point(5, 15)
+        Dim lPhoneType As New Label With {
+            .Text = "Phone Type:",
+            .Location = New Point(5, 15)
+        }
         frm.Controls.Add(lPhoneType)
-
-        Dim tPhoneType As New TextBox()
-        tPhoneType.Name = "txtPhoneType"
-        tPhoneType.Location = New Point(lPhoneType.Width + 5, 15)
+        Dim tPhoneType As New TextBox With {
+            .Name = "txtPhoneType",
+            .Location = New Point(lPhoneType.Width + 5, 15)
+        }
         frm.Controls.Add(tPhoneType)
 
-        Dim bAdd As New Button()
-        bAdd.Location = New Point(tPhoneType.Left + 15, 15)
-        bAdd.Text = "Add"
+        Dim bAdd As New Button With {
+            .Location = New Point(tPhoneType.Left + 15, 15),
+            .Text = "Add"
+        }
         frm.Controls.Add(bAdd)
 
         Dim dgv As DataGridView = New DataGridView()
@@ -38,4 +40,5 @@ Module FormGenerator
         frm.Width = 270
         frm.Height = 115
     End Sub
+
 End Module

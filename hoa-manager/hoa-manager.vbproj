@@ -89,6 +89,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppCode\DataHelper.vb" />
     <Compile Include="AppForms\admEdit.Designer.vb">
       <DependentUpon>admEdit.vb</DependentUpon>
     </Compile>
@@ -187,6 +188,10 @@
   <ItemGroup>
     <Content Include="App_Data\hoa-manager.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\hoa-manager_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>hoa-manager.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
