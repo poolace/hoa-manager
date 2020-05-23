@@ -2,43 +2,62 @@
 Imports System.Data.SqlClient
 
 Module FormGenerator
-    Sub FormatStateLookup(ByRef frm As Form)
-        frm.Text = "Phone Type Editor"
+    Sub FormatLookupForm(ByRef frm As Form, title As String, sql As String)
+        frm.Text = title
+        frm.Width = 400
 
-        '***Add controls***
-        Dim lPhoneType As New Label With {
-            .Text = "Phone Type:",
-            .Location = New Point(5, 15)
-        }
-        frm.Controls.Add(lPhoneType)
-        Dim tPhoneType As New TextBox With {
-            .Name = "txtPhoneType",
-            .Location = New Point(lPhoneType.Width + 5, 15)
-        }
-        frm.Controls.Add(tPhoneType)
+        'get datatable
+        Dim dt As DataTable = GetDataTableForSQL(sql, "Edit")
 
-        Dim bAdd As New Button With {
-            .Location = New Point(tPhoneType.Left + 15, 15),
-            .Text = "Add"
-        }
-        frm.Controls.Add(bAdd)
-
-        Dim dgv As DataGridView = New DataGridView()
-        Dim con As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("Prod").ConnectionString)
-        con.Open()
-        Dim query As String = "SELECT * FROM PhoneType"
-        Dim sda As SqlDataAdapter = New SqlDataAdapter(query, con)
-        Dim dt As DataTable = New DataTable()
-        sda.Fill(dt)
-        dgv.DataSource = dt
-        dgv.Columns("Id").Visible = False
-        con.Close()
-        dgv.Location = New Point(10, 60)
-        dgv.Width = 350
-        dgv.Height = 250
+        Dim dgv As DataGridView = GetDataGridViewForDataTable(dt)
+        With dgv
+            .Name = "dynDgv"
+            .Location = New Point(10, 10)
+            .Width = frm.Width - 36
+            .Size = New Drawing.Size(frm.Width - 36, frm.Height - 100)
+            AddHandler .CellContentClick, AddressOf Dgv_Click
+        End With
         frm.Controls.Add(dgv)
-        frm.Width = 270
-        frm.Height = 115
+
+        Dim btnAdd As New Button
+        frm.Controls.Add(btnAdd)
+        With btnAdd
+            .Name = "btnAdd"
+            .Text = "&Add"
+            .Left = dgv.Location.X
+            .Top = (dgv.Location.Y + dgv.Height) + 10
+            AddHandler .Click, AddressOf Button_Click
+        End With
+
+        'Dim btnClose As New Button
+        'frm.Controls.Add(btnClose)
+        With frm.Controls("btnClose")
+            '.Name = "btnClose"
+            '.Text = "&Close"
+            .Left = (dgv.Location.X + dgv.Width) - .Width
+            .Top = (dgv.Location.Y + dgv.Height) + 10
+            'AddHandler .Click, AddressOf Button_Click
+        End With
     End Sub
 
+    Private Sub Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Dim pushedButton As Button = sender
+        If pushedButton.Name = "btnAdd" Then
+            'adminAdd("State")
+            MsgBox("Open form to add a record.")
+        End If
+    End Sub
+    Private Sub Dgv_Click(ByVal sender As System.Object, ByVal e As DataGridViewCellEventArgs)
+        If IsANonHeaderButtonCell(e) Then
+            MsgBox("Open form to edit the record for " + "TBD" + ".")
+        End If
+    End Sub
+
+    Private Function IsANonHeaderButtonCell(cellEvent As DataGridViewCellEventArgs) As Boolean
+        'If .Controls("dynDgv").Columns(cellEvent.ColumnIndex) Is DataGridViewButtonColumn Then
+        '&& Not cellEvent.RowIndex = -1 Then
+        'End If
+        Return True
+
+    End Function
 End Module

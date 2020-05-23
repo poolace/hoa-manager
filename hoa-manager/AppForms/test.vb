@@ -14,6 +14,19 @@ Public Class test
             .Size = New Drawing.Size(Me.Width - 36, Me.Height - 100)
         End With
 
+        Dim btnAdd As New Button
+        Me.Controls.Add(btnAdd)
+        With btnAdd
+            .Left = dgv.Location.X
+            .Top = (dgv.Location.Y + dgv.Height) + 15
+        End With
+
+        Dim btnClose As New Button
+        Me.Controls.Add(btnClose)
+        With btnClose
+            .Left = (dgv.Location.X + dgv.Width) - .Width
+            .Top = (dgv.Location.Y + dgv.Height) + 15
+        End With
     End Sub
 
     Private Sub Dgv_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)

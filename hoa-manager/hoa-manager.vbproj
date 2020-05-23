@@ -90,10 +90,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppCode\DataHelper.vb" />
-    <Compile Include="AppForms\admEdit.Designer.vb">
-      <DependentUpon>admEdit.vb</DependentUpon>
+    <Compile Include="AppForms\AdmEdit.Designer.vb">
+      <DependentUpon>AdmEdit.vb</DependentUpon>
     </Compile>
-    <Compile Include="AppForms\admEdit.vb">
+    <Compile Include="AppForms\AdmEdit.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AppForms\FormMainCntnr.vb">
@@ -133,8 +133,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AppForms\admEdit.resx">
-      <DependentUpon>admEdit.vb</DependentUpon>
+    <EmbeddedResource Include="AppForms\AdmEdit.resx">
+      <DependentUpon>AdmEdit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppForms\FormMainCntnr.resx">
       <DependentUpon>FormMainCntnr.vb</DependentUpon>
